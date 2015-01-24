@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h2>Test security configuration</h2>
+    <a href="/ocjwp1/secured">Test get method</a><br>
+    <form method="POST" action="/ocjwp1/secured">
+        <input type="submit" value="Test POST"/>
+    </form>
+
+    <a href="/ocjwp1/securedAllAllowed">Everybody allowed to go here</a><br>
+    <a href="/ocjwp1/securedNobody">Nobody allowed to go here</a><br>
+
+    <h2>Overlapping security configurations</h2>
+    <a href="/ocjwp1/securityOverlap1">Everybody + nobody (Nobody has priority)</a><br>
+    <a href="/ocjwp1/securityOverlap2">Only admin + everybody (Everybody has priority)</a><br>
+    <a href="/ocjwp1/securityOverlap3">All roles (*) + everybody</a><br>
+    <a href="/ocjwp1/securityOverlap4">All roles (*)</a><br>
+</body>
+</html>

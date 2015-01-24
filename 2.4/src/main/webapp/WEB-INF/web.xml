@@ -1,0 +1,441 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http//java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+        version="2.4">
+    <servlet>
+        <servlet-name>Catalog servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.CatalogServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Log info</servlet-name>
+        <servlet-class>com.example.web.servlet.InfoServlet</servlet-class>
+        <init-param>
+            <param-name>my param</param-name>
+            <param-value>param value</param-value>
+        </init-param>
+        <init-param>
+            <param-name>my param 2</param-name>
+            <param-value>param value 2</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Image servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.ImageFileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Command servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.CommandServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Session management</servlet-name>
+        <servlet-class>com.example.web.servlet.ManageSessionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Shopping cart</servlet-name>
+        <servlet-class>com.example.web.servlet.ShoppingCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Cookie management</servlet-name>
+        <servlet-class>com.example.web.servlet.CookieManagementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Forein link servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.ForeinLinkServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Login servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>El test servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.eltest.ELTestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Secured servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.security.SecurityServletExample</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Different url match servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.DifferentUrlMatchingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Security role mapping servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.security.SecurityRoleMappingServletExample</servlet-class>
+        <security-role-ref>
+            <role-name>supervisor</role-name>
+            <role-link>customer</role-link>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>boss</role-name>
+            <role-link>admin</role-link>
+        </security-role-ref>
+    </servlet>
+    <servlet>
+        <servlet-name>Dispatching source servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.dispatching.DispatchingSourceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Dispatching dest servlet</servlet-name>
+        <servlet-class>com.example.web.servlet.dispatching.DispatchingDestServlet</servlet-class>
+    </servlet>
+    <filter>
+        <filter-name>Dispatching filter</filter-name>
+        <filter-class>com.example.web.servlet.dispatching.DispatchFilter</filter-class>
+    </filter>
+
+    <servlet-mapping>
+        <servlet-name>Catalog servlet</servlet-name>
+        <url-pattern>/shop/catalog</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet-mapping has priority over static resources, if set to securityTest.html, you will newer see this html page -->
+    <servlet-mapping>
+        <servlet-name>Catalog servlet</servlet-name>
+        <url-pattern>/securityTest.html111</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Log info</servlet-name>
+        <url-pattern>/admin/info</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Image servlet</servlet-name>
+        <url-pattern>/image</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Command servlet</servlet-name>
+        <url-pattern>/admin/command</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Session management</servlet-name>
+        <url-pattern>/admin/session</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Shopping cart</servlet-name>
+        <url-pattern>/shop/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cookie management</servlet-name>
+        <url-pattern>/admin/cookie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Forein link servlet</servlet-name>
+        <url-pattern>/foreinlink</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login servlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>El test servlet</servlet-name>
+        <url-pattern>/admin/eltest</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Secured servlet</servlet-name>
+        <url-pattern>/secured</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Secured servlet</servlet-name>
+        <url-pattern>/securedAllAllowed</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Secured servlet</servlet-name>
+        <url-pattern>/securedNobody</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Secured servlet</servlet-name>
+        <url-pattern>/securityOverlap1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Secured servlet</servlet-name>
+        <url-pattern>/securityOverlap2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Secured servlet</servlet-name>
+        <url-pattern>/securityOverlap3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Secured servlet</servlet-name>
+        <url-pattern>/securityOverlap4</url-pattern>
+    </servlet-mapping>
+
+    <!-- test different url match -->
+    <!-- This is the order, container looks for servlet -->
+    <servlet-mapping>
+        <servlet-name>Different url match servlet</servlet-name>
+        <url-pattern>/urlmatch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Different url match servlet</servlet-name>
+        <url-pattern>/urlfolder/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Different url match servlet</servlet-name>
+        <url-pattern>*.urlext</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Security role mapping servlet</servlet-name>
+        <url-pattern>/securityRoleMapping</url-pattern>
+    </servlet-mapping>
+
+    <!-- params for JSP-->
+    <servlet>
+        <servlet-name>Main page</servlet-name>
+        <jsp-file>/main.jsp</jsp-file>
+        <init-param>
+            <param-name>title</param-name>
+            <param-value>Welcome to simple E-shop</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Main page</servlet-name>
+        <url-pattern>/main.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Dispatching source servlet</servlet-name>
+        <url-pattern>/dispatchSource</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Dispatching dest servlet</servlet-name>
+        <url-pattern>/dispatchDest</url-pattern>
+    </servlet-mapping>
+    <filter-mapping>
+        <filter-name>Dispatching filter</filter-name>
+        <url-pattern>/dispatchDest</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>/products.jsp</url-pattern>
+            <scripting-invalid>true</scripting-invalid>
+        </jsp-property-group>
+        <taglib>
+            <taglib-uri>DiceFunctions</taglib-uri>
+            <taglib-location>/WEB-INF/diceFunctions.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+    <context-param>
+        <param-name>my context param</param-name>
+        <param-value>some value</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>com.example.web.listener.MyServletContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.example.web.listener.MyServletContextAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.example.web.listener.MyHttpSessionListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.example.web.listener.MyHttpSessionAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.example.web.listener.MyHttpSessionActivationListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.example.web.listener.MyServletRequestListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.example.web.listener.MyServletRequestAttributeListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>Simple log filter</filter-name>
+        <filter-class>com.example.web.filter.MyLoggingFilter</filter-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>Kostya</param-value>
+        </init-param>
+        <init-param>
+            <param-name>surname</param-name>
+            <param-value>Slisenka</param-value>
+        </init-param>
+        <init-param>
+            <param-name>language</param-name>
+            <param-value>Java</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>Forein links filter</filter-name>
+        <filter-class>com.example.web.filter.MyForeinLinksFilter</filter-class>
+        <init-param>
+            <param-name>redirectPage</param-name>
+            <param-value>redirect</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Simple log filter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Forein links filter</filter-name>
+        <url-pattern>/main.jsp</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Simple log filter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+    
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>main.jsp</welcome-file>
+        <welcome-file>start.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/exceptionPage.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errorCodePage.jsp</location>
+    </error-page>
+    
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>customer</role-name>
+    </security-role>
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
+    <login-config>
+        <!--auth-method>BASIC</auth-method-->
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/loginPage.jsp</form-login-page>
+            <form-error-page>/loginError.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Login servlet</web-resource-name>
+            <url-pattern>/login</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Administration pages</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Shopping cart</web-resource-name>
+            <url-pattern>/shop/cart/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>customer</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All pages</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+    </security-constraint>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Seсured servlet</web-resource-name>
+            <url-pattern>/secured</url-pattern>
+            <http-method>POST</http-method>
+            <!-- we do not secure GET method -->
+            <!-- If no http-method specified, we SECURE ALL METHODS! -->
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Seсured servlet</web-resource-name>
+            <url-pattern>/securityOverlap2</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Open servlet</web-resource-name>
+            <url-pattern>/securedAllAllowed</url-pattern>
+            <url-pattern>/securityOverlap1</url-pattern>
+            <url-pattern>/securityOverlap2</url-pattern>
+        </web-resource-collection>
+        <!-- All users are allowed. Container does not check anything! -->
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Nobody allowed</web-resource-name>
+            <url-pattern>/securedNobody</url-pattern>
+            <url-pattern>/securityOverlap1</url-pattern>
+        </web-resource-collection>
+        <!-- Nobody allowed to access this url -->
+        <auth-constraint/>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All roles allowed</web-resource-name>
+            <url-pattern>/securityOverlap3</url-pattern>
+            <url-pattern>/securityOverlap4</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Everybody allowed</web-resource-name>
+            <url-pattern>/securityOverlap3</url-pattern>
+        </web-resource-collection>
+    </security-constraint>
+
+    <!--
+        Приоритеты:
+            1. Пустой <auth-constraint> запрещает всё
+            2. Нет <auth-constraint> - не проверяем роль
+            3. Если роли есть, то они складываются * - как-будто все роли
+    -->
+
+    <env-entry>
+        <env-entry-name>testEnvEntry</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>test env entry value</env-entry-value>
+    </env-entry>
+</web-app>
